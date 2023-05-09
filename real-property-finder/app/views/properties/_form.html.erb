@@ -1,0 +1,94 @@
+<%= form_with(model: property) do |form| %>
+  <%= render "layouts/validation",item: @property %>
+
+  <div class="form-group">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price, "Total Price(for sale) / Montly Price (rental)",style: "display: block" %>
+    <%= form.number_field :price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :rooms, style: "display: block" %>
+    <%= form.number_field :rooms, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bathrooms, style: "display: block" %>
+    <%= form.number_field :bathrooms, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :parking_spaces, style: "display: block" %>
+    <%= form.number_field :parking_spaces, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :for_sale %>
+    <%= form.select :for_sale, options_for_select({"Yes" => true, "No" => false }, @property.for_sale), class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :available_date, style: "display: block" %>
+    <%= form.date_field :available_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :details, style: "display: block" %>
+    <%= form.text_area :details, class: "form-control" %>
+  </div>
+
+<div class="container">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @property.images.each_with_index do |image, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <%= image_tag image, class: "d-block w-100" %>
+        </div>
+      <% end %>
+    </div>
+    <% if @property.images.count > 1 %>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%# <%= form.label :photo %>
+    <%# <%= form.file_field :photo, class: "form-control" %>
+    <%# <%= form.hidden_field :photo_cache %>
+
+    <%= form.label :images, class: "image-label" %>
+    <%= form.file_field :images, multiple: true %>
+
+    <% if @property.photo.present? %>
+      <%= image_tag @property.photo.thumb.url, class: "mt-8" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :property_type %>
+  <%= form.select :property_type, options_for_select(["Land", "Flat"]), {prompt: "Select property type"}, class: "form-control" %>
+</div>
+
+
+  <div class="input-group">
+    <%= form.submit "Save Property", class: "btn btn-success" %>
+  </div>
+<% end %>
+<%# <%= render 'layouts/footer' %>

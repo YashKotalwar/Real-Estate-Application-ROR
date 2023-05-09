@@ -1,0 +1,46 @@
+<style>
+  .container1 {
+    background-image: url(<%= asset_path('placeholder5.jpg') %>);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action  style="background-image: url(<%= asset_path('placeholder5.jpg') %>)"-->
+  <div class="jumbotron" >
+    <div class="container" >
+      <h1 class="display-3">Search for your new home today...</h1>
+      <p> Don't miss your chance to own this charming bungalow in one of the city's most sought-after neighborhoods.</p>
+      <p><a class="btn btn-primary btn-lg" href="<%= new_account_session_path %>" role="button">Learn more »</a>
+      </p>
+      </div>
+
+    </div>
+  </div>
+
+<section id="latest-properties" class="mb-5">
+ <div class="container">
+ <div class="row">
+  <%= render "properties/list", properties: @properties%>
+  </div>
+  </div>
+</section>
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <%# <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      </div> %>
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
+
+</main>
+

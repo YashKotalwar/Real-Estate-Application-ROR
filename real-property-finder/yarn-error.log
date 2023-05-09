@@ -1,0 +1,45 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add bootstrap
+
+PATH: 
+  C:\Ruby26-x64\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\apache-maven-3.8.6-bin (1)\apache-maven-3.8.6\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files (x86)\Yarn\bin\;C:\Ruby31-x64\bin;C:\Users\yash_kotalwar\AppData\Local\Microsoft\WindowsApps;C:\Users\yash_kotalwar\AppData\Local\Programs\Git\cmd;C:\Users\yash_kotalwar\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\bin;;C:\Users\yash_kotalwar\AppData\Roaming\npm;C:\sqlite3;C:\Users\yash_kotalwar\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  16.14.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: unable to get local issuer certificate
+      at TLSSocket.onConnectSecure (node:_tls_wrap:1530:34)
+      at TLSSocket.emit (node:events:526:28)
+      at TLSSocket._finishInit (node:_tls_wrap:944:8)
+      at TLSWrap.ssl.onhandshakedone (node:_tls_wrap:725:12)
+
+npm manifest: 
+  {
+      "name": "real-property-finder",
+      "private": true,
+      "dependencies": {
+          "@fortawesome/fontawesome-free": "^5.10.2",
+          "bootstrap": "^4.3.1",
+          "jquery": "^3.4.1",
+          "popper.js": "^1.15.0",
+          "@rails/ujs": "^6.0.0-alpha",
+          "@rails/webpacker": "^4.0.7"
+      },
+      "version": "0.1.0",
+      "devDependencies": {
+          "webpack-dev-server": "^3.8.0"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

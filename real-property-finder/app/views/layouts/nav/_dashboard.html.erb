@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Property Finder</a>
+  <form class="d-flex mr-lg-4 w-100" role="search" action="<%= properties_path %>" method="get" placeholder="Search">
+            <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <%= button_to "Log out", destroy_account_session_path, method: :delete, class: "btn btn-primary nav-link" %>
+    </li>
+  </ul>
+</nav>
+
+

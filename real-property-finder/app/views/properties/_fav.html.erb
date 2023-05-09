@@ -1,0 +1,14 @@
+<h1 class="mb-4">My Favorite Properties</h1>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+  <% @favorite_properties.each do |property| %>
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><%= property.name %></h5>
+          <p class="card-text"><%= property.address %></p>
+          <%= link_to 'View Details', property, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

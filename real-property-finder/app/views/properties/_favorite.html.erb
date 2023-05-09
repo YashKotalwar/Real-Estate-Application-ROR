@@ -1,0 +1,10 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><%= favorite_property.name %></h5>
+    <p class="card-text"><%= favorite_property.address %></p>
+    <p class="card-text"><%= favorite_property.price %></p>
+    <p class="card-text"><%= favorite_property.rooms %></p>
+    <p class="card-text"><%= favorite_property.bathrooms %></p>
+    <%= link_to 'Remove from favorites', property_unfavorite_path(favorite_property), method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>
