@@ -1,0 +1,139 @@
+<div class="property-main-photo" style="background-image:url('<%= property_photo_url @property %>')">
+    <div class="photo-overlay" >
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-lg-6">
+          <p class="h4 mb-2"><%= @property.for_sale? ? "For Sale" : "For Rent" %></p>
+            <p class="mb-2"><%= @property.address %></p>
+            <p class="h2 mb-3">
+              <% if @property.for_sale? %>
+                <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Offer Accepted" %>
+              <% else %>
+                <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Open for enquiries" %> / month
+              <% end %>
+            </p>
+          </div>
+      <div class="col-lg-6 text-center">
+      <div class="row mr-lg-3 mt-sm-3 bg-light p-3">
+
+
+        <div class="col-4">
+        <p class="m-0"><strong><i data-feather="grid"></i><br><small>Rooms</small></strong></p>
+          <span class="lead"> <%= @property.rooms %> </span>
+        </div>
+
+
+        <div class="col-4">
+        <p class="m-0"><strong><i data-feather="cloud-drizzle"></i><small>Bathrooms</small></strong></p>
+          <span class="lead"><%= @property.bathrooms %></span>
+        </div>
+
+        <div class="col-4">
+        <p class="m-0"><strong><i data-feather="truck"></i><br><small>Parking</small></strong></p>
+        <i class="fa-solid fa-car"></i>
+          <span class="lead"><%= @property.parking_spaces %></span>
+        </div>
+        </div>
+        <div>
+      </div>
+    </div>
+    <div class="row border-top border-bottom mt-5 mb-5 pt-4 pb-4">
+      <div class="col-6">
+        <% if @property.for_sale? %>
+          <strong><%= link_to "Est. Montly Repayments of #{number_to_currency((@property.price - (@property.price * 0.1)) / 360, precision: 0 ) }*", "#", class: "text-success" %></span></strong>
+        <% else %>
+          <strong>Available from <%= @property.available_date.day.ordinalize %>, <%= @property.available_date.strftime("%b") %></strong>
+        <% end %>
+      </div>
+      <div class="col-6 text-right">
+      <strong><%= link_to "Can I afford this property?", "#", class: "text-success" %></span></strong>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+          <p class="h3"> <%= @property.name %> </p>
+          <p class="h5">Property Description</p>
+          <div id="prop-details" class="mb-5">
+            <p><%= simple_format @property.details %> </p>
+          </div>
+          <%# <button class="btn btn-outline-info mt-3" id="toggleDetails">Show More</button> %>
+
+          <% if @property.for_sale %>
+            <p  class="mt-5">* This rate is based on a 30 year mortgage, after paying initial 10% down payment</p>
+          <% end %>
+
+          <h1> Location </h1>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-4">
+          <%= render "properties/agent_details", agent: @agent %>
+          <iframe class="ml-lg-4 mt-3" width="328" height="240" frameborder="0" style="border:0" src="https://www.google.com/maps/@19.1382515,77.320955,15z"> </iframe>
+        </div>
+    </div>
+
+
+<div class="container mt-2">
+  <div id="propertyCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @property.images.each_with_index do |image, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <%= image_tag image, class: "d-block w-100" %>
+        </div>
+      <% end %>
+    </div>
+    <% if @property.images.count > 1 %>
+      <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    <% end %>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+
+<div class="row">
+  <section class="mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ml-4">
+              <p class="h3 mb-3">Other properties by this agent</p>
+            </div>
+          <%= render "properties/list", properties: @agent_properties %>
+        </div>
+      </div>
+  </section>
+</div>
+
+
+<%= render "properties/send_email_modal"%>
+
+    <%# <%= link_to "Edit property", edit_property_path(@property), class: "btn btn-success"%>
+  <%# <%= link_to "Cancel", properties_path, class: "btn btn-secondary"%>
+
+  <%# <%= button_to "Destroy this property", @property, method: :delete, class: "btn btn-secondary" %>
+
+
+<%# <%= render @property %>
+
+<%# <div> %>
+  <%# <%= link_to "Edit property", edit_property_path(@property), class: "btn btn-success"%>
+  <%# <%= link_to "Cancel", properties_path, class: "btn btn-secondary"%>
+
+<%# </div> %>

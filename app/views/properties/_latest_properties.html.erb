@@ -1,0 +1,30 @@
+<% @properties.each do |property| %>
+
+
+
+
+    <div class="prop col-4.5">
+        <div class="property p-5 border mt-2 ml-2">
+            <%= link_to(property_thumbnail(property), property_path(property)) %>
+            <h3 class="h5 mt-3"><%= link_to property.name, property_path(property), class: "text-dark"%></h3>
+            <div class="amenities mb-2">
+                <span class="mr-2">
+                    <%= property.rooms %>
+                    <i data-feather="grid"></i>
+                </span>
+                <span class="mr-2">
+                    <%= property.bathrooms %>
+                    <i data-feather="cloud-drizzle"></i>
+                </span>
+                <span>
+                    <%= property.parking_spaces %>
+                    <i data-feather="truck"></i>
+                </span>
+            <p class="mt-1"><%= property.address %></p>
+            </div>
+        </div>
+    </div>
+
+
+<% end %>
+

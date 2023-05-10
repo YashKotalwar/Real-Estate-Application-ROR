@@ -1,0 +1,33 @@
+<% properties.each do |property| %>
+  <div class="prop col-3.5">
+    <div class="property p-3 border mt-2 ml-2">
+      <% if property.images.present? %>
+        <div class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= image_tag property.images.first, class: "d-block w-100" %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to(property_thumbnail(property), property_path(property)) %>
+      <% end %>
+      <h3 class="h5 mt-3"><%= link_to property.name, property_path(property), class: "text-dark"%></h3>
+      <div class="amenities mb-2">
+        <span class="mr-2">
+          <%= property.rooms %>
+          <i data-feather="grid"></i>
+        </span>
+        <span class="mr-2">
+          <%= property.bathrooms %>
+          <i data-feather="cloud-drizzle"></i>
+        </span>
+        <span>
+          <%= property.parking_spaces %>
+          <i data-feather="truck"></i>
+        </span>
+        <p class="mt-1"><%= property.address %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

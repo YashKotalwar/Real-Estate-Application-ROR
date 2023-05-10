@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+// app/assets/stylesheets/application.scss
+
+// @import "@fortawesome/fontawesome-free/css/all.css";
+// app/assets/stylesheets/application.scss
+// app/assets/stylesheets/application.scss
+
+//@import "bootstrap/scss/bootstrap";
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 8px;
+    width: 100%;
+    margin-left: 8px;
+  }
+
+
+  // .carousel-item {
+  //   height: 500px;
+  // }
+
+  // .image-label {
+  //   font-weight: bold;
+  //   margin-bottom: 0.5rem;
+  // }
+
+  // .btn-primary {
+  //   background-color: #007bff;
+  //   border-color: #007bff;
+  // }
+
+  // .btn-primary:hover {
+  //   background-color: #0069d9;
+  //   border-color: #0062cc;
+  // }
+
+  // .card-container {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  //   grid-gap: 1rem;
+  // }
+
+  // .card-img-top {
+  //   height: 300px;
+  //   object-fit: cover;
+  // }
+
+  // @media (max-width: 768px) {
+  //   .card-img-top {
+  //     height: 200px;
+  //   }
+  // }

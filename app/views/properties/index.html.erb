@@ -1,0 +1,87 @@
+<h1 class="h3">Properties</h1>
+
+<h2>Land</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Rooms</th>
+      <th>Bathrooms</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.where(property_type: "Land").each do |property| %>
+      <tr>
+        <td><%= property.name %></td>
+        <td><%= property.address %></td>
+        <td><%= property.price %></td>
+        <td><%= property.rooms %></td>
+        <td><%= property.bathrooms %></td>
+        <td><%= link_to 'Show', property %></td>
+        <% if current_account.admin? || current_account.broker? %>
+          <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <% end %>
+        <% if current_account.admin? %>
+          <td><%= button_to 'Destroy', property, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td>
+          <% if !current_account.broker? && !current_account.admin? %>
+            <% if current_account.favorite_properties.include?(property) %>
+              <%= link_to 'Remove from Favorites', property_unfavorite_path(property), method: :delete, class: 'btn btn-danger' %>
+            <% else %>
+              <%= link_to 'Add to Favorites', property_favorite_path(property), method: :post, class: 'btn btn-primary' %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Flat</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Rooms</th>
+      <th>Bathrooms</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.where(property_type: "Flat").each do |property| %>
+      <tr>
+        <td><%= property.name %></td>
+        <td><%= property.address %></td>
+        <td><%= property.price %></td>
+        <td><%= property.rooms %></td>
+        <td><%= property.bathrooms %></td>
+        <td><%= link_to 'Show', property %></td>
+        <% if current_account.admin? || current_account.broker? %>
+          <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <% end %>
+        <% if current_account.admin? %>
+          <td><%= button_to 'Destroy', property, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td>
+          <% if !current_account.broker? && !current_account.admin? %>
+            <% if current_account.favorite_properties.include?(property) %>
+              <%= link_to 'Remove from Favorites', property_unfavorite_path(property), method: :delete, class: 'btn btn-danger' %>
+            <% else %>
+              <%= link_to 'Add to Favorites', property_favorite_path(property), method: :post, class: 'btn btn-primary' %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if current_account.admin? || current_account.broker? %>
+  <%= link_to 'New property', new_property_path, class: 'btn btn-success' %>
+<% end %>
